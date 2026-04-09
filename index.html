@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Szimas Seven Delights</title>
+<style>
+body { font-family: Georgia, serif; margin:0; background:#f4efe6; color:#3e2f1c; }
+header { background:#7a5c3e; color:white; padding:20px; text-align:center; }
+section { padding:20px; }
+.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.product { background:#fffaf3; padding:15px; border-radius:10px; text-align:center; }
+button { padding:10px; background:#7a5c3e; color:white; border:none; border-radius:6px; cursor:pointer; }
+button:hover { background:#5e452f; }
+.cart { background:#fffaf3; padding:20px; border-radius:10px; max-width:500px; margin:auto; }
+input, textarea { width:100%; padding:8px; margin:5px 0; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Szimas Seven Delights</h1>
+<p>Farm Stand Baked Goods & Handmade Items</p>
+</header>
+
+<section>
+<h2>🖼️ Shop Our Products</h2>
+<div class="gallery">
+
+<div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4 contenteditable="true">Cookies</h4>
+<p contenteditable="true">10</p>
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4 contenteditable="true">Cake</h4>
+<p contenteditable="true">30</p>
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>🛒 Your Cart</h2>
+<div class="cart">
+<ul id="cartItems"></ul>
+<h3>Total: $<span id="total">0</span></h3>
+
+<form id="orderForm" action="https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/formResponse" method="POST" target="_blank">
+<input name="entry.808301826" placeholder="Your Name" required>
+<input name="entry.1054240422" placeholder="Email" required>
+<textarea id="itemsField" name="entry.251171995" placeholder="Items" required></textarea>
+<input id="totalField" name="entry.135858509" placeholder="Total" required>
+<input name="entry.233651060" placeholder="Pickup or Delivery">
+<textarea name="entry.233651060.other_option_response" placeholder="Notes"></textarea>
+</form>
+
+<form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="szimasdelights@gmail.com">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="amount" id="paypalAmount">
+<button type="button" onclick="checkout()">Checkout</button>
+</form>
+
+</div>
+</section>
+
+<script>
+let cart = [];
+
+function addToCart(btn){
+  const product = btn.parentElement;
+  const name = product.querySelector('h4').innerText;
+  const price = parseFloat(product.querySelector('p').innerText);
+  cart.push({name, price});
+  renderCart();
+}
+
+function renderCart(){
+  const list = document.getElementById('cartItems');
+  const totalEl = document.getElementById('total');
+  list.innerHTML='';
+  let total = 0;
+
+  cart.forEach(item=>{
+    total += item.price;
+    const li = document.createElement('li');
+    li.innerText = item.name + ' - $' + item.price;
+    list.appendChild(li);
+  });
+
+  totalEl.innerText = total.toFixed(2);
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert('Cart is empty');
+    return;
+  }
+
+  let itemsText = cart.map(i=> i.name + ' ($'+i.price+')').join(', ');
+  let total = document.getElementById('total').innerText;
+
+  document.getElementById('itemsField').value = itemsText;
+  document.getElementById('totalField').value = total;
+  document.getElementById('paypalAmount').value = total;
+
+  document.getElementById('orderForm').submit();
+  setTimeout(()=>{
+    document.getElementById('paypalForm').submit();
+  },500);
+}
+
+function uploadImage(event,input){
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function(){
+    input.previousElementSibling.src = reader.result;
+  }
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
