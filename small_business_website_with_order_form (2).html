@@ -93,40 +93,4 @@ function renderCart(){
     total += item.price;
     const li = document.createElement('li');
     li.innerText = item.name + ' - $' + item.price;
-    list.appendChild(li);
-  });
-
-  totalEl.innerText = total.toFixed(2);
-}
-
-function checkout(){
-  if(cart.length === 0){
-    alert('Cart is empty');
-    return;
-  }
-
-  let itemsText = cart.map(i=> i.name + ' ($'+i.price+')').join(', ');
-  let total = document.getElementById('total').innerText;
-
-  document.getElementById('itemsField').value = itemsText;
-  document.getElementById('totalField').value = total;
-  document.getElementById('paypalAmount').value = total;
-
-  document.getElementById('orderForm').submit();
-  setTimeout(()=>{
-    document.getElementById('paypalForm').submit();
-  },500);
-}
-
-function uploadImage(event,input){
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function(){
-    input.previousElementSibling.src = reader.result;
-  }
-  reader.readAsDataURL(file);
-}
-</script>
-
-</body>
 </html>
