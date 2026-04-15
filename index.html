@@ -6,7 +6,7 @@
 <title>Szimas Seven Delights</title>
 <style>
 body { font-family: Georgia, serif; margin:0; background:#f4efe6; color:#3e2f1c; }
-header { background:#7a5c3e; color:white; padding:20px; text-align:center; }
+header { background:#7a5c3e; color:white; padding:20px; text-align:center; position:sticky; top:0; }
 section { padding:20px; }
 .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
 .product { background:#fffaf3; padding:15px; border-radius:10px; text-align:center; }
@@ -15,9 +15,13 @@ button:hover { background:#5e452f; }
 .cart { background:#fffaf3; padding:20px; border-radius:10px; max-width:500px; margin:auto; }
 input, textarea, select { width:100%; padding:8px; margin:5px 0; }
 .payment-box { background:#f9f3e8; padding:10px; border-radius:8px; margin-top:10px; }
+.badge { background:#a67c52; color:white; padding:3px 8px; border-radius:6px; font-size:12px; }
+.cart-count { position:fixed; top:10px; right:10px; background:#7a5c3e; color:white; padding:10px; border-radius:50%; }
 </style>
 </head>
 <body>
+
+<div class="cart-count" id="cartCount">0</div>
 
 <header>
 <h1>Szimas Seven Delights</h1>
@@ -31,20 +35,105 @@ input, textarea, select { width:100%; padding:8px; margin:5px 0; }
 <div class="product">
 <img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
 <input type="file" onchange="uploadImage(event,this)">
-<h4 contenteditable="true">Cookie Monster Cookies</h4>
-<p contenteditable="true">1.50</p>
-<p contenteditable="true">8.00 Per Dozen</p>
+<h4>Cookies <span class="badge">Best Seller</span></h4>
+<p><strong>$2 each | $20 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="2" style="display:none;">
+<input class="dozenPrice" value="20" style="display:none;">
+
 <button onclick="addToCart(this)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
 <input type="file" onchange="uploadImage(event,this)">
-<h4 contenteditable="true">Cake</h4>
-<p contenteditable="true">30</p>
+<h4>Cookie Monster Cookie</h4>
+<p><strong>$1.50 each | $8.00 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="5" style="display:none;">
+<input class="dozenPrice" value="50" style="display:none;">
+
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+  
+<div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4>Red Velvet Cookie</h4>
+<p><strong>$1.50 each | $8.00 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="5" style="display:none;">
+<input class="dozenPrice" value="50" style="display:none;">
+
 <button onclick="addToCart(this)">Add to Cart</button>
 </div>
 
+  <div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4>Double Chocolate Chip Cookies</h4>
+<p><strong>$1.50 each | $8.00 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="5" style="display:none;">
+<input class="dozenPrice" value="50" style="display:none;">
+
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4>Chocolate Chip</h4>
+<p><strong>$1.00 each | $7.00 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="5" style="display:none;">
+<input class="dozenPrice" value="50" style="display:none;">
+
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
+<input type="file" onchange="uploadImage(event,this)">
+<h4>Oatmeal Raisin</h4>
+<p><strong>$1.00 each | $7.00 dozen</strong></p>
+
+<select class="sizeSelect">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+
+<input class="singlePrice" value="5" style="display:none;">
+<input class="dozenPrice" value="50" style="display:none;">
+
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+  
 </div>
 </section>
 
@@ -60,7 +149,6 @@ input, textarea, select { width:100%; padding:8px; margin:5px 0; }
 <textarea id="itemsField" name="entry.251171995" placeholder="Items" required></textarea>
 <input id="totalField" name="entry.135858509" placeholder="Total" required>
 
-<label>Pickup or Delivery</label>
 <select name="entry.233651060">
 <option>Pickup</option>
 <option>Delivery</option>
@@ -68,7 +156,6 @@ input, textarea, select { width:100%; padding:8px; margin:5px 0; }
 
 <textarea name="entry.233651060.other_option_response" placeholder="Notes"></textarea>
 
-<label>Payment Method</label>
 <select id="paymentMethod">
 <option value="paypal">Pay Online (Card / PayPal / Venmo)</option>
 <option value="cash">Pay at Pickup (Cash)</option>
@@ -78,7 +165,7 @@ input, textarea, select { width:100%; padding:8px; margin:5px 0; }
 
 <div class="payment-box" id="altPayments" style="display:none;">
 <p><strong>Venmo:</strong> @YourVenmoName</p>
-<p><strong>Cash App:</strong> $Ssevendelights</p>
+<p><strong>Cash App:</strong>$Ssevendelights</p>
 </div>
 
 </form>
@@ -100,32 +187,42 @@ let cart = [];
 function addToCart(btn){
   const product = btn.parentElement;
   const name = product.querySelector('h4').innerText;
-  const price = parseFloat(product.querySelector('p').innerText);
-  cart.push({name, price});
+  const singlePrice = parseFloat(product.querySelector('.singlePrice').value);
+  const dozenPrice = parseFloat(product.querySelector('.dozenPrice').value);
+  const size = product.querySelector('.sizeSelect').value;
+
+  let price = size === 'dozen' ? dozenPrice : singlePrice;
+  let label = name + (size === 'dozen' ? ' (Dozen)' : ' (Single)');
+
+  cart.push({name: label, price});
   renderCart();
 }
 
 function renderCart(){
   const list = document.getElementById('cartItems');
   const totalEl = document.getElementById('total');
+  const countEl = document.getElementById('cartCount');
   list.innerHTML='';
   let total = 0;
 
-  cart.forEach(item=>{
+  cart.forEach((item, index)=>{
     total += item.price;
     const li = document.createElement('li');
-    li.innerText = item.name + ' - $' + item.price;
+    li.innerHTML = item.name + ' - $' + item.price + ' <button onclick="removeItem('+index+')">X</button>';
     list.appendChild(li);
   });
 
   totalEl.innerText = total.toFixed(2);
+  countEl.innerText = cart.length;
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  renderCart();
 }
 
 function checkout(){
-  if(cart.length === 0){
-    alert('Cart is empty');
-    return;
-  }
+  if(cart.length === 0){ alert('Cart is empty'); return; }
 
   let method = document.getElementById('paymentMethod').value;
   let itemsText = cart.map(i=> i.name + ' ($'+i.price+')').join(', ');
@@ -133,14 +230,11 @@ function checkout(){
 
   document.getElementById('itemsField').value = itemsText;
   document.getElementById('totalField').value = total;
-
   document.getElementById('orderForm').submit();
 
   if(method === 'paypal'){
     document.getElementById('paypalAmount').value = total;
-    setTimeout(()=>{
-      document.getElementById('paypalForm').submit();
-    },500);
+    setTimeout(()=> document.getElementById('paypalForm').submit(),500);
   } else {
     alert('Order submitted! Use selected payment method.');
   }
@@ -149,24 +243,16 @@ function checkout(){
 function uploadImage(event,input){
   const file = event.target.files[0];
   const reader = new FileReader();
-  reader.onload = function(){
-    input.previousElementSibling.src = reader.result;
-  }
+  reader.onload = ()=> input.previousElementSibling.src = reader.result;
   reader.readAsDataURL(file);
 }
 
-// Show alt payment info
 const paymentSelect = document.getElementById('paymentMethod');
 paymentSelect?.addEventListener('change', function(){
-  const box = document.getElementById('altPayments');
-  if(this.value === 'venmo' || this.value === 'cashapp'){
-    box.style.display = 'block';
-  } else {
-    box.style.display = 'none';
-  }
+  document.getElementById('altPayments').style.display =
+    (this.value === 'venmo' || this.value === 'cashapp') ? 'block' : 'none';
 });
 </script>
 
 </body>
 </html>
-
