@@ -13,14 +13,15 @@ section { padding:20px; }
 button { padding:10px; background:#7a5c3e; color:white; border:none; border-radius:6px; cursor:pointer; }
 button:hover { background:#5e452f; }
 .cart { background:#fffaf3; padding:20px; border-radius:10px; max-width:500px; margin:auto; }
-input, textarea { width:100%; padding:8px; margin:5px 0; }
+input, textarea, select { width:100%; padding:8px; margin:5px 0; }
+.payment-box { background:#f9f3e8; padding:10px; border-radius:8px; margin-top:10px; }
 </style>
 </head>
 <body>
 
 <header>
 <h1>Szimas Seven Delights</h1>
-<p>Farm Stand Baked Goods & Handmade Items All From the Heart</p>
+<p>Farm Stand Baked Goods & Handmade Items</p>
 </header>
 
 <section>
@@ -32,25 +33,18 @@ input, textarea { width:100%; padding:8px; margin:5px 0; }
 <input type="file" onchange="uploadImage(event,this)">
 <h4 contenteditable="true">Cookie Monster Cookies</h4>
 <p contenteditable="true">1.50</p>
+<p contenteditable="true">8.00 Per Dozen</p>
 <button onclick="addToCart(this)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://via.placeholder.com/300" style="width:100%; border-radius:10px;">
 <input type="file" onchange="uploadImage(event,this)">
-<h4 contenteditable="true">Pecan Pie Muffins</h4>
-<p contenteditable="true">1.50</p>
+<h4 contenteditable="true">Cake</h4>
+<p contenteditable="true">30</p>
 <button onclick="addToCart(this)">Add to Cart</button>
 </div>
-  
-<div class="product">
-  <img src="https://via.placeholder.com/300">
-  <input type="file" onchange="uploadImage(event,this)">
-  <h4 contenteditable="true">Double Chocolate Cookies</h4>
-  <p contenteditable="true">1.50</p>
-  <button onclick="addToCart(this)">Add to Cart</button>
-</div>
-  
+
 </div>
 </section>
 
@@ -65,8 +59,28 @@ input, textarea { width:100%; padding:8px; margin:5px 0; }
 <input name="entry.1054240422" placeholder="Email" required>
 <textarea id="itemsField" name="entry.251171995" placeholder="Items" required></textarea>
 <input id="totalField" name="entry.135858509" placeholder="Total" required>
-<input name="entry.233651060" placeholder="Pickup or Delivery">
+
+<label>Pickup or Delivery</label>
+<select name="entry.233651060">
+<option>Pickup</option>
+<option>Delivery</option>
+</select>
+
 <textarea name="entry.233651060.other_option_response" placeholder="Notes"></textarea>
+
+<label>Payment Method</label>
+<select id="paymentMethod">
+<option value="paypal">Pay Online (Card / PayPal / Venmo)</option>
+<option value="cash">Pay at Pickup (Cash)</option>
+<option value="venmo">Venmo</option>
+<option value="cashapp">Cash App</option>
+</select>
+
+<div class="payment-box" id="altPayments" style="display:none;">
+<p><strong>Venmo:</strong> @YourVenmoName</p>
+<p><strong>Cash App:</strong> $Ssevendelights</p>
+</div>
+
 </form>
 
 <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -113,17 +127,23 @@ function checkout(){
     return;
   }
 
+  let method = document.getElementById('paymentMethod').value;
   let itemsText = cart.map(i=> i.name + ' ($'+i.price+')').join(', ');
   let total = document.getElementById('total').innerText;
 
   document.getElementById('itemsField').value = itemsText;
   document.getElementById('totalField').value = total;
-  document.getElementById('paypalAmount').value = total;
 
   document.getElementById('orderForm').submit();
-  setTimeout(()=>{
-    document.getElementById('paypalForm').submit();
-  },500);
+
+  if(method === 'paypal'){
+    document.getElementById('paypalAmount').value = total;
+    setTimeout(()=>{
+      document.getElementById('paypalForm').submit();
+    },500);
+  } else {
+    alert('Order submitted! Use selected payment method.');
+  }
 }
 
 function uploadImage(event,input){
@@ -134,6 +154,17 @@ function uploadImage(event,input){
   }
   reader.readAsDataURL(file);
 }
+
+// Show alt payment info
+const paymentSelect = document.getElementById('paymentMethod');
+paymentSelect?.addEventListener('change', function(){
+  const box = document.getElementById('altPayments');
+  if(this.value === 'venmo' || this.value === 'cashapp'){
+    box.style.display = 'block';
+  } else {
+    box.style.display = 'none';
+  }
+});
 </script>
 
 </body>
