@@ -149,31 +149,135 @@ input, select {
 <div class="grid">
 
 <div class="card">
-<h3>Cookies</h3>
+<h3>Double Chocolate Chip Cookies</h3>
 <div class="price">$1.50 / $7 Dozen</div>
-<select id="cookies">
+<select id="Double Chocolate Chip Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Cookies')">Add to Cart</button>
+<button onclick="add('Double Chocolate Chip Cookies')">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Cakes</h3>
-<div class="price">$1.00 / $6 Tray</div>
+<h3>Red Velvet Cookies</h3>
+<div class="price">$1.50 / $7 Dozen</div>
+<select id="Red Velvet cookies">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Red Velvet Cookies')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Cookie Monster Cookies</h3>
+<div class="price">$1.50 / $7 Dozen</div>
+<select id="Cookie Monster cookies">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Cookie Monster Cookies')">Add to Cart</button>
+</div>
+
+   <div class="card">
+<h3>Chocolate Chip Cookies</h3>
+<div class="price">$1.00 / $6 Dozen</div>
+<select id="Chocolat Chip cookies">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Chocolate Chip Cookies')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Oatmeal Raisin Cookies</h3>
+<div class="price">$1.00 / $6 Dozen</div>
+<select id="Oatmeal Raisin cookies">
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Oatmeal Raisin Cookies')">Add to Cart</button>
+</div>
+   
+<div class="card">
+<h3>Pecan Pie Muffins</h3>
+<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
 <select id="cakes">
   <option value="single">Single</option>
+   <option value="Four Pack">Four Pack</option>
   <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Cakes')">Add to Cart</button>
+<button onclick="add('Pecan Pie Muffins')">Add to Cart</button>
+</div>
+
+   <div class="card">
+<h3>Blueberry Muffins</h3>
+<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<select id="Blueberry Muffins">
+  <option value="single">Single</option>
+   <option value="Four Pack">Four Pack</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Blueberry Muffins')">Add to Cart</button>
 </div>
 
 <div class="card">
+<h3>Banana Muffins</h3>
+<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<select id="Banana Muffins">
+  <option value="single">Single</option>
+   <option value="Four Pack">Four Pack</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Banana Muffins')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Donut Muffins</h3>
+<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<select id="Donut Muffins">
+  <option value="single">Single</option>
+   <option value="Four Pack">Four Pack</option>
+  <option value="dozen">Dozen</option>
+</select>
+<button onclick="add('Donut Muffins')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Lemon Bread</h3>
+<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<select id="Lemon Bread">
+  <option value="single">Single</option>
+  <option value="Loaves">Loaves</option>
+</select>
+<button onclick="add('Lemon Bread')">Add to Cart</button>
+</div>
+
+   <div class="card">
+<h3>Humming Bird Bread</h3>
+<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<select id="Humming Bird Bread">
+  <option value="single">Single</option>
+  <option value="Loaves">Loaves</option>
+</select>
+<button onclick="add('Humming Bird Bread')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Apple Pecan Bread</h3>
+<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<select id="Apple Pecan Bread">
+  <option value="single">Single</option>
+  <option value="Loaves">Loaves</option>
+</select>
+<button onclick="add('Apple Pecan Bread')">Add to Cart</button>
+</div>
+   
+<div class="card">
 <h3>Brownies</h3>
-<div class="price">$1.50 / $7 Dozen</div>
+<div class="price">$2.00 / $8 Pan</div>
 <select id="brownies">
   <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
+  <option value="Pan">Pan</option>
 </select>
 <button onclick="add('Brownies')">Add to Cart</button>
 </div>
@@ -195,7 +299,7 @@ Not subject to routine government food inspections.
 <h2>Checkout</h2>
 
 <input id="name" placeholder="Name"/>
-<input id="phone" placeholder="Phone"/>
+<input id="Email" placeholder="Email"/>
 <input id="note" placeholder="Pickup / Delivery Notes"/>
 
 <h3>Total: $<span id="total">0</span></h3>
@@ -206,7 +310,8 @@ Not subject to routine government food inspections.
 
 <p><b>Payment Options:</b></p>
 <a href="https://cash.app/$Ssevendelights">Cash App</a><br>
-<a href="https://venmo.com/YOURUSERNAME">Venmo</a>
+<a href="https://venmo.com/YOURUSERNAME">Venmo</a><br>
+<a href="Cash">Cash</a>
 </section>
 
 </div>
@@ -220,9 +325,11 @@ let cart = [];
 let total = 0;
 
 const prices = {
-  Cookies: { single: 1.50, dozen: 7.00 },
-  Cakes: { single: 1.00, dozen: 6.00 },
-  Brownies: { single: 1.50, dozen: 7.00 }
+Speciality Cookies: { single: 1.50, dozen: 7.00 },
+Cookies: { single: 1.00, dozen: 6.00 },
+Breads: {Mini: 2.00, Loaves: 4.00 },
+Brownies: { single: 1.50, Pan: 8.00 },
+Muffins: { single: 2.00, Four Pack: 4.00, dozen: 8.00 }
 };
 
 /* ADD ITEM */
@@ -268,7 +375,7 @@ function submitOrder() {
     "\nNote: " + note +
     "\nItems: " + cart.map(c => c.item + " " + c.option).join(", ");
 
-  let googleFormURL = "YOUR_GOOGLE_FORM_LINK_HERE";
+  let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/viewform?usp=pp_url&entry.808301826=Test";
 
   window.open(googleFormURL);
 
