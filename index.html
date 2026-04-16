@@ -6,10 +6,6 @@
 <title>Szimas Seven Delights</title>
 
 <style>
-/* =========================
-   FARMHOUSE + STORE FRONT
-   ========================= */
-
 body {
   margin: 0;
   font-family: Georgia, serif;
@@ -17,7 +13,6 @@ body {
   color: #3b2f2a;
 }
 
-/* HERO HEADER */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
@@ -28,15 +23,8 @@ body {
   padding: 60px 20px;
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 38px;
-}
-
-.hero p {
-  font-style: italic;
-  margin-top: 10px;
-}
+.hero h1 { margin: 0; font-size: 38px; }
+.hero p { font-style: italic; margin-top: 10px; }
 
 .badges span {
   display: inline-block;
@@ -47,21 +35,18 @@ body {
   font-size: 12px;
 }
 
-/* LAYOUT */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
 }
 
-/* PRODUCT GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
 }
 
-/* PRODUCT CARD */
 .card {
   background: #fffdf8;
   border-radius: 16px;
@@ -77,7 +62,6 @@ body {
   margin: 6px 0;
 }
 
-/* BUTTON */
 button {
   width: 100%;
   padding: 10px;
@@ -90,11 +74,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background: #6e452c;
-}
+button:hover { background: #6e452c; }
 
-/* CART */
 .cart {
   position: fixed;
   right: 15px;
@@ -107,7 +88,6 @@ button:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* INPUTS */
 input, select {
   width: 100%;
   padding: 8px;
@@ -116,7 +96,6 @@ input, select {
   border: 1px solid #d8c6b0;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .cart {
     position: static;
@@ -129,7 +108,6 @@ input, select {
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1>🌾 Szimas Seven Delights</h1>
   <p>Fresh homemade bakery goods made with love</p>
@@ -142,7 +120,6 @@ input, select {
 
 <div class="container">
 
-<!-- PRODUCTS -->
 <section>
 <h2>🛍️ Shop Fresh Baked Goods</h2>
 
@@ -161,7 +138,7 @@ input, select {
 <div class="card">
 <h3>Red Velvet Cookies</h3>
 <div class="price">$1.50 / $7 Dozen</div>
-<select id="Red Velvet cookies">
+<select id="Red Velvet Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
@@ -171,17 +148,17 @@ input, select {
 <div class="card">
 <h3>Cookie Monster Cookies</h3>
 <div class="price">$1.50 / $7 Dozen</div>
-<select id="Cookie Monster cookies">
+<select id="Cookie Monster Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Cookie Monster Cookies')">Add to Cart</button>
 </div>
 
-   <div class="card">
+<div class="card">
 <h3>Chocolate Chip Cookies</h3>
 <div class="price">$1.00 / $6 Dozen</div>
-<select id="Chocolat Chip cookies">
+<select id="Chocolate Chip Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
@@ -191,30 +168,30 @@ input, select {
 <div class="card">
 <h3>Oatmeal Raisin Cookies</h3>
 <div class="price">$1.00 / $6 Dozen</div>
-<select id="Oatmeal Raisin cookies">
+<select id="Oatmeal Raisin Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Oatmeal Raisin Cookies')">Add to Cart</button>
 </div>
-   
+
 <div class="card">
 <h3>Pecan Pie Muffins</h3>
-<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
-<select id="cakes">
+<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
+<select id="Pecan Pie Muffins">
   <option value="single">Single</option>
-   <option value="Four Pack">Four Pack</option>
+  <option value="Four Pack">Four Pack</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Pecan Pie Muffins')">Add to Cart</button>
 </div>
 
-   <div class="card">
+<div class="card">
 <h3>Blueberry Muffins</h3>
-<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
 <select id="Blueberry Muffins">
   <option value="single">Single</option>
-   <option value="Four Pack">Four Pack</option>
+  <option value="Four Pack">Four Pack</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Blueberry Muffins')">Add to Cart</button>
@@ -222,10 +199,10 @@ input, select {
 
 <div class="card">
 <h3>Banana Muffins</h3>
-<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
 <select id="Banana Muffins">
   <option value="single">Single</option>
-   <option value="Four Pack">Four Pack</option>
+  <option value="Four Pack">Four Pack</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Banana Muffins')">Add to Cart</button>
@@ -233,10 +210,10 @@ input, select {
 
 <div class="card">
 <h3>Donut Muffins</h3>
-<div class="price">$2.00 / $4.00 Four Pack / $8.00 Dozen</div>
+<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
 <select id="Donut Muffins">
   <option value="single">Single</option>
-   <option value="Four Pack">Four Pack</option>
+  <option value="Four Pack">Four Pack</option>
   <option value="dozen">Dozen</option>
 </select>
 <button onclick="add('Donut Muffins')">Add to Cart</button>
@@ -244,7 +221,7 @@ input, select {
 
 <div class="card">
 <h3>Lemon Bread</h3>
-<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<div class="price">$2.00 mini / $4 Loaves</div>
 <select id="Lemon Bread">
   <option value="single">Single</option>
   <option value="Loaves">Loaves</option>
@@ -252,9 +229,9 @@ input, select {
 <button onclick="add('Lemon Bread')">Add to Cart</button>
 </div>
 
-   <div class="card">
+<div class="card">
 <h3>Humming Bird Bread</h3>
-<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<div class="price">$2.00 mini / $4 Loaves</div>
 <select id="Humming Bird Bread">
   <option value="single">Single</option>
   <option value="Loaves">Loaves</option>
@@ -264,18 +241,18 @@ input, select {
 
 <div class="card">
 <h3>Apple Pecan Bread</h3>
-<div class="price">$2.00 mini /  $4.00 Loaves</div>
+<div class="price">$2.00 mini / $4 Loaves</div>
 <select id="Apple Pecan Bread">
   <option value="single">Single</option>
   <option value="Loaves">Loaves</option>
 </select>
 <button onclick="add('Apple Pecan Bread')">Add to Cart</button>
 </div>
-   
+
 <div class="card">
 <h3>Brownies</h3>
 <div class="price">$2.00 / $8 Pan</div>
-<select id="brownies">
+<select id="Brownies">
   <option value="single">Single</option>
   <option value="Pan">Pan</option>
 </select>
@@ -285,21 +262,17 @@ input, select {
 </div>
 </section>
 
-<!-- ABOUT -->
 <section>
 <h2>🌿 About Our Kitchen</h2>
-<p>
-Homemade in a cottage food kitchen. Fresh baked goods made to order.
-Not subject to routine government food inspections.
-</p>
+<p>Homemade in a cottage food kitchen. Fresh baked goods made to order.</p>
 </section>
 
-<!-- CHECKOUT -->
 <section>
 <h2>Checkout</h2>
 
 <input id="name" placeholder="Name"/>
-<input id="Email" placeholder="Email"/>
+<input id="phone" placeholder="Phone Number"/>
+<input id="email" placeholder="Email"/>
 <input id="note" placeholder="Pickup / Delivery Notes"/>
 
 <h3>Total: $<span id="total">0</span></h3>
@@ -317,23 +290,32 @@ Not subject to routine government food inspections.
 
 <script>
 
-/* =========================
-   PRICING SYSTEM
-   ========================= */
 let cart = [];
 let total = 0;
 
 const prices = {
-Speciality Cookies: { single: 1.50, dozen: 7.00 },
-Cookies: { single: 1.00, dozen: 6.00 },
-Breads: {Mini: 2.00, Loaves: 4.00 },
-Brownies: { single: 1.50, Pan: 8.00 },
-Muffins: { single: 2.00, Four Pack: 4.00, dozen: 8.00 }
+"Double Chocolate Chip Cookies": { single: 1.50, dozen: 7.00 },
+"Red Velvet Cookies": { single: 1.50, dozen: 7.00 },
+"Cookie Monster Cookies": { single: 1.50, dozen: 7.00 },
+"Chocolate Chip Cookies": { single: 1.00, dozen: 6.00 },
+"Oatmeal Raisin Cookies": { single: 1.00, dozen: 6.00 },
+
+"Pecan Pie Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
+"Blueberry Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
+"Banana Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
+"Donut Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
+
+"Lemon Bread": { single: 2.00, Loaves: 4.00 },
+"Humming Bird Bread": { single: 2.00, Loaves: 4.00 },
+"Apple Pecan Bread": { single: 2.00, Loaves: 4.00 },
+
+"Brownies": { single: 2.00, Pan: 8.00 }
 };
 
-/* ADD ITEM */
 function add(item) {
-  let option = document.getElementById(item.toLowerCase()).value;
+  let select = document.querySelector(`select[id="${item}"]`);
+  let option = select.value;
+
   let price = prices[item][option];
 
   cart.push({ item, option, price });
@@ -342,7 +324,6 @@ function add(item) {
   render();
 }
 
-/* RENDER CART */
 function render() {
   document.getElementById("cart").innerHTML =
     cart.map((c, i) =>
@@ -355,30 +336,27 @@ function render() {
   document.getElementById("total").innerText = total.toFixed(2);
 }
 
-/* REMOVE ITEM */
 function removeItem(i) {
   total -= cart[i].price;
   cart.splice(i, 1);
   render();
 }
 
-/* SUBMIT ORDER TO GOOGLE FORM */
 function submitOrder() {
   let name = document.getElementById('name').value;
   let phone = document.getElementById('phone').value;
+  let email = document.getElementById('email').value;
   let note = document.getElementById('note').value;
 
   let orderText =
     "Name: " + name +
     "\nPhone: " + phone +
+    "\nEmail: " + email +
     "\nNote: " + note +
     "\nItems: " + cart.map(c => c.item + " " + c.option).join(", ");
 
-  let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/viewform?usp=pp_url&entry.808301826";
-
-  window.open(googleFormURL);
-
-  alert("Order submitted!");
+  alert("Order captured! Send payment via Cash App or Venmo.");
+  console.log(orderText);
 }
 
 </script>
