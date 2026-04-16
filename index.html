@@ -1,262 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Szimas Seven Delights</title>
+
 <style>
-body { font-family: Georgia; background:#f4efe6; margin:0; }
-header { background:#7a5c3e; color:white; text-align:center; padding:20px; }
-nav { background:#5e452f; padding:10px; text-align:center; }
-nav a { color:white; margin:10px; text-decoration:none; }
-.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; padding:20px; }
-.product { background:white; padding:15px; border-radius:10px; text-align:center; }
-button { background:#7a5c3e; color:white; padding:10px; border:none; border-radius:5px; cursor:pointer; }
-.cart { padding:20px; background:white; max-width:200px; margin:auto; border-radius:10px; }
-.cart-count { position:fixed; top:10px; right:10px; background:#7a5c3e; color:white; padding:10px; border-radius:50%; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #fff8f2;
+  color: #333;
+  line-height: 1.5;
+}
+
+header {
+  background: #d98c6a;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  background: #b86b4b;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+section {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+section h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #b86b4b;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #d98c6a;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: #c47657;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="cart-count" id="cartCount">0</div>
-
 <header>
-<h1>Szimas Seven Delights</h1>
-<p>Farm Stand Baked Goods & Handmade Items</p>
+  <h1>Szimas Seven Delights</h1>
+  <p>Homemade treats made with love ❤️</p>
 </header>
 
 <nav>
-<a href="#cookies">Cookies</a>
-<a href="#Breads">Breads</a>
-<a href="#Muffins">Muffins</a>
-<a href="#Misc">Misc</a>
-<a href="#cart">Cart</a>
+  <a href="#about">About</a>
+  <a href="#products">Products</a>
+  <a href="#order">Preorders</a>
+  <a href="#pickup">Pickup</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<section id="cookies">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Chocolate Chip</h4>
-<p>$1.00 each | $6.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="1" style="display:none;">
-<input class="dozenPrice" value="6" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="cookies">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Oatmeal Raisin</h4>
-<p>$1.00 each | $6.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="1" style="display:none;">
-<input class="dozenPrice" value="6" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="cookies">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Double Chocolate Chip</h4>
-<p>$1.50 each | $7.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="1.50" style="display:none;">
-<input class="dozenPrice" value="7" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="cookies">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Cookie Monster</h4>
-<p>$1.50 each | $7.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="1.50" style="display:none;">
-<input class="dozenPrice" value="7" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="cookies">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Red Velvet</h4>
-<p>$1.50 each | $7.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="1.50" style="display:none;">
-<input class="dozenPrice" value="7" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Breads">
-<h2 style="padding-left:20px;">Breads</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Pre-Sliced Bread</h4>
-<p>$4.00 each </p>
-<select class="sizeSelect"><option value="single">Single</option></select>
-<input class="singlePrice" value="4" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Breads">
-<h2 style="padding-left:20px;">Breads</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Apple Pecan</h4>
-<p>$2.00 mini | $4.00 Loaves</p>
-<select class="sizeSelect"><option value="Mini">Mini</option><option value="Loaves">Loaves</option></select>
-<input class="MiniPrice" value="2" style="display:none;">
-<input class="LoavesPrice" value="4" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Breads">
-<h2 style="padding-left:20px;">Breads</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Lemon</h4>
-<p>$2.00 Mini | $4.00 Loaves</p>
-<select class="sizeSelect"><option value="Mini">Mini</option><option value="Loaves">Loaves</option></select>
-<input class="MiniPrice" value="2" style="display:none;">
-<input class="LoavesPrice" value="4" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Breads">
-<h2 style="padding-left:20px;">Breads</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Hummingbird</h4>
-<p>$2.00 mini | $4.00 Loaves</p>
-<select class="sizeSelect"><option value="Mini">Mini</option><option value="Loaves">Loaves</option></select>
-<input class="MiniPrice" value="2" style="display:none;">
-<input class="LoavesPrice" value="4" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Muffins">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Pecan Pie</h4>
-<p>$2.00 each | $4.00 Four Pack | $8.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="Four Pack">Four Pack</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="2" style="display:none;">
-<input class="Four PackPrice" value="4" style="display:none;">
-<input class="dozenPrice" value="8" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Muffins">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Donut</h4>
-<p>$2.00 each | $4.00 Four Pack | $8.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="Four Pack">Four Pack</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="2" style="display:none;">
-<input class="Four PackPrice" value="4" style="display:none;">
-<input class="dozenPrice" value="8" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Muffins">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Banana</h4>
-<p>$2.00 each | $4.00 Four Pack | $8.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="Four Pack">Four Pack</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="2" style="display:none;">
-<input class="Four PackPrice" value="4" style="display:none;">
-<input class="dozenPrice" value="8" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Muffins">
-<h2 style="padding-left:20px;">Cookies</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Blueberry</h4>
-<p>$2.00 each | $4.00 Four Pack | $8.00 dozen</p>
-<select class="sizeSelect"><option value="single">Single</option><option value="Four Pack">Four Pack</option><option value="dozen">Dozen</option></select>
-<input class="singlePrice" value="2" style="display:none;">
-<input class="Four PackPrice" value="4" style="display:none;">
-<input class="dozenPrice" value="8" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
-<section id="Misc">
-<h2 style="padding-left:20px;">Breads</h2>
-<div class="gallery">
-<div class="product">
-<img src="cookies.jpg" style="width:100%">
-<h4>Brownies</h4>
-<p>$2.00 Each | $8.00 Pan</p>
-<select class="sizeSelect"><option value="Single">Single</option><option value="Pan">Pan</option></select>
-<input class="SinglePrice" value="2" style="display:none;">
-<input class="PanPrice" value="8" style="display:none;">
-<input type="number" class="qty" value="1" min="1">
-<button onclick="addToCart(this)">Add</button>
-</div>
- 
-</div>
+<div class="container">
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>Welcome to Szimas Seven Delights! We specialize in homemade baked goods and sweet treats made fresh for your family.</p>
 </section>
 
-<section id="cart">
-<h2 style="text-align:center;">Cart</h2>
-<div class="cart">
-<ul id="cartItems"></ul>
-<h3>Total: $<span id="total">0</span></h3>
-
-<form id="orderForm" action="https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/formResponse" method="POST" target="_blank">
-<input name="entry.808301826" placeholder="Name" required>
-<input name="entry.1054240422" placeholder="Email" required>
-<textarea id="itemsField" name="entry.251171995"></textarea>
-<input id="totalField" name="entry.135858509">
-</form>
-
-<form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="szimasdelights@gmail.com">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="amount" id="paypalAmount">
-<button type="button" onclick="checkout()">Checkout</button>
-</form>
-
-  <label>Payment Method</label>
-<select id="paymentMethod">
-  <option value="paypal">Pay Online (PayPal / Card)</option>
-  <option value="cash">Pay at Pickup (Cash)</option>
-  <option value="venmo">Venmo</option>
-  <option value="cashapp">Cash App</option>
-</select>
-
-<div id="altPayments" style="display:none; background:#f4efe6; padding:10px; margin-top:10px; border-radius:8px;">
-  <p><strong>Venmo:</strong> @YourVenmoName</p>
-  <p><strong>Cash App:</strong> $$Ssevendelights</p>
-</div>
-</div>
+<section id="products">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <h3>Cookies</h3>
+      <p>Fresh baked soft cookies</p>
+    </div>
+    <div class="product-card">
+      <h3>Cakes</h3>
+      <p>Custom homemade cakes</p>
+    </div>
+    <div class="product-card">
+      <h3>Brownies</h3>
+      <p>Rich fudgy brownies</p>
+    </div>
+  </div>
 </section>
 
-<script>
-let cart = [];
+<section id="order">
+  <h2>Preorders</h2>
+  <p>Preorders are open through our website. Order ahead to secure your treats!</p>
+  <a class="button" href="#contact">Order Now</a>
+</section>
+
+<section id="pickup">
+  <h2>Pickup & Delivery</h2>
+  <p>We offer porch pickup, local delivery, and flexible drop-off options when available.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Message us for orders, questions, or custom requests.</p>
+  <a class="button" href="mailto:example@email.com">Email Us</a>
+</section>
+
+</div>
+
+<footer>
+  <p>© 2026 Szimas Seven Delights</p>
+</footer>
+
+</body>
+</html>
