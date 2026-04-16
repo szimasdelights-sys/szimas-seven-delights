@@ -1,253 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Szimas Seven Delights</title>
+
+<style>
+/* =========================
+   FARMHOUSE + STORE FRONT
+   ========================= */
+
 body {
   margin: 0;
-  font-family: "Georgia", serif;
+  font-family: Georgia, serif;
   background: #f4efe6;
   color: #3b2f2a;
 }
 
-/* soft grain texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: -1;
+/* HERO HEADER */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
 }
 
-<header>
-  <h1>🌾 Szimas Seven Delights</h1>
-  <p>Homemade baked goods made with love from our farmhouse kitchen</p>
-  <div class="badge">Fresh • Homemade • Porch Pickup Available</div>
-</header>
-
-header h1 {
-  font-size: 34px;
-  letter-spacing: 1px;
+.hero h1 {
   margin: 0;
+  font-size: 38px;
 }
 
-header p {
+.hero p {
   font-style: italic;
-  opacity: 0.9;
+  margin-top: 10px;
 }
-<section>
-  <h2>🌻 Farm Stand Info</h2>
-  <p>
-    Orders are made fresh in our home kitchen.  
-    Pickup available at porch stand or local delivery options.
-  </p>
-</section>
 
-/* MAIN LAYOUT */
+.badges span {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+/* LAYOUT */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
 }
 
-/* SECTIONS = farmhouse paper cards */
-section {
-  background: #fffaf2;
-  border: 1px solid #e6d7c6;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 18px 0;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
 /* PRODUCT GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
 
-/* PRODUCT CARDS */
+/* PRODUCT CARD */
 .card {
   background: #fffdf8;
+  border-radius: 16px;
+  padding: 16px;
   border: 1px solid #eadfce;
-  border-radius: 14px;
-  padding: 14px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
   text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
-/* BUTTONS = rustic bakery buttons */
+.price {
+  color: #8b5a3c;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+/* BUTTON */
 button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
   background: #8b5a3c;
-  color: #fff;
-  border: 1px solid #5a3823;
-  padding: 9px 12px;
-  border-radius: 10px;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  font-family: "Georgia", serif;
-  transition: 0.2s;
 }
 
 button:hover {
   background: #6e452c;
-  transform: scale(1.03);
 }
 
-/* CART = chalkboard feel */
+/* CART */
 .cart {
   position: fixed;
   right: 15px;
-  top: 100px;
-  width: 260px;
+  top: 120px;
+  width: 280px;
   background: #fffaf2;
   border: 1px solid #e6d7c6;
   border-radius: 14px;
   padding: 12px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* INPUTS */
 input, select {
   width: 100%;
-  padding: 9px;
-  margin: 6px 0;
-  border: 1px solid #d8c6b0;
+  padding: 8px;
+  margin: 5px 0;
   border-radius: 8px;
-  background: #fffdf8;
-  font-family: "Georgia", serif;
+  border: 1px solid #d8c6b0;
 }
 
-/* FARMHOUSE BADGE */
-.badge {
-  display: inline-block;
-  background: #6e452c;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-top: 6px;
+/* MOBILE */
+@media (max-width: 768px) {
+  .cart {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
 }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🌾 Szimas Seven Delights</h1>
+  <p>Fresh homemade bakery goods made with love</p>
+  <div class="badges">
+    <span>🧁 Fresh Daily</span>
+    <span>🏡 Porch Pickup</span>
+    <span>📦 Custom Orders</span>
+  </div>
+</div>
+
+<div class="container">
+
 <!-- PRODUCTS -->
 <section>
-<h2>Products</h2>
+<h2>🛍️ Shop Fresh Baked Goods</h2>
+
 <div class="grid">
 
 <div class="card">
-<h3>Double Chocolate Chip Cookies</h3>
+<h3>Cookies</h3>
+<div class="price">$1.50 / $7 Dozen</div>
 <select id="cookies">
-  <option $1.50="Single">Single</option>
-  <option $7.00="Dozen">Dozen</option>
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Cookies')">Add</button>
+<button onclick="add('Cookies')">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Chocolate Chip</h3>
+<h3>Cakes</h3>
+<div class="price">$1.00 / $6 Tray</div>
 <select id="cakes">
-  <option $1.00="Single">Single Cake</option>
-  <option $6.00="Custom">Custom Order</option>
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Cakes')">Add</button>
+<button onclick="add('Cakes')">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Cookie Monster</h3>
+<h3>Brownies</h3>
+<div class="price">$1.50 / $7 Dozen</div>
 <select id="brownies">
-  <option $1.50="Single">Single</option>
-  <option $7.00="Dozen">Dozen</option>
+  <option value="single">Single</option>
+  <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Brownies')">Add</button>
+<button onclick="add('Brownies')">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
+<!-- ABOUT -->
 <section>
-  <h2>🌿 About Our Kitchen</h2>
-  <p>
-made in a cottage food operation that is
-not subject to routine government
-food safety inspections
-  Orders are made fresh and never mass produced.
-  </p>
+<h2>🌿 About Our Kitchen</h2>
+<p>
+Homemade in a cottage food kitchen. Fresh baked goods made to order.
+Not subject to routine government food inspections.
+</p>
 </section>
+
 <!-- CHECKOUT -->
 <section>
 <h2>Checkout</h2>
 
-<input id="name" placeholder="Name" />
-<input id="phone" placeholder="Phone" />
-<input id="note" placeholder="Pickup / Delivery Notes" />
+<input id="name" placeholder="Name"/>
+<input id="phone" placeholder="Phone"/>
+<input id="note" placeholder="Pickup / Delivery Notes"/>
 
-<h3>Cart</h3>
+<h3>Total: $<span id="total">0</span></h3>
+
 <div id="cart"></div>
 
-<button class="checkout-btn" onclick="submitOrder()">Submit Order</button>
+<button onclick="submitOrder()">Submit Order</button>
 
-<div class="pay-links">
-  <a class="cashapp" href="https://cash.app/$$Ssevendelights" target="_blank">Pay with Cash App</a>
-  <a class="venmo" href="https://venmo.com/YOURUSERNAME" target="_blank">Pay with Venmo</a>
-  <a class="paypal" href="#">Pay with PayPal</a>
-</div>
-
+<p><b>Payment Options:</b></p>
+<a href="https://cash.app/$Ssevendelights">Cash App</a><br>
+<a href="https://venmo.com/YOURUSERNAME">Venmo</a>
 </section>
 
 </div>
 
 <script>
+
+/* =========================
+   PRICING SYSTEM
+   ========================= */
 let cart = [];
+let total = 0;
 
-  function add(item) {
+const prices = {
+  Cookies: { single: 1.50, dozen: 7.00 },
+  Cakes: { single: 1.00, dozen: 6.00 },
+  Brownies: { single: 1.50, dozen: 7.00 }
+};
 
+/* ADD ITEM */
+function add(item) {
   let option = document.getElementById(item.toLowerCase()).value;
-
-  let price = 0;
-
-  if (option === "single") price = prices[item].single;
-  if (option === "dozen") price = prices[item].dozen;
+  let price = prices[item][option];
 
   cart.push({ item, option, price });
-
   total += price;
 
   render();
 }
 
+/* RENDER CART */
 function render() {
   document.getElementById("cart").innerHTML =
-    cart.map((c, index) =>
+    cart.map((c, i) =>
       `<div>
         ${c.item} (${c.option}) - $${c.price}
-        <button onclick="removeItem(${index})">Remove</button>
+        <button onclick="removeItem(${i})">Remove</button>
       </div>`
     ).join('');
 
-  document.getElementById("total").innerText = total;
+  document.getElementById("total").innerText = total.toFixed(2);
 }
-function removeItem(index) {
-  total -= cart[index].price;
-  cart.splice(index, 1);
+
+/* REMOVE ITEM */
+function removeItem(i) {
+  total -= cart[i].price;
+  cart.splice(i, 1);
   render();
 }
-  
-function submitOrder(){
 
-let name = document.getElementById('name').value;
-let phone = document.getElementById('phone').value;
-let note = document.getElementById('note').value;
+/* SUBMIT ORDER TO GOOGLE FORM */
+function submitOrder() {
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let note = document.getElementById('note').value;
 
-let orderText = encodeURIComponent(
-"Name: " + name +
-"\nPhone: " + phone +
-"\nNote: " + note +
-"\nItems: " + cart.join(", ")
-);
-  
-alert("Your order has been sent!");
+  let orderText =
+    "Name: " + name +
+    "\nPhone: " + phone +
+    "\nNote: " + note +
+    "\nItems: " + cart.map(c => c.item + " " + c.option).join(", ");
 
-cart = [];
-render();
+  let googleFormURL = "YOUR_GOOGLE_FORM_LINK_HERE";
+
+  window.open(googleFormURL);
+
+  alert("Order submitted!");
 }
+
 </script>
 
 </body>
 </html>
-
