@@ -23,56 +23,43 @@ th,td { padding:10px; border:1px solid #ccc; text-align:center; }
 </table>
 
 <script>
-const SHEET_ID = "PASTE_YOUR_SHEET_ID";
+const SHEET_ID = "1yDADA6-M5sVpagaBh5JGGxAIEr7d8063c3e-QQzbVqE";
 
-function parseGoogleJSON(text){
-  try {
-    const start = text.indexOf('{');
-    const end = text.lastIndexOf('}');
-    const jsonString = text.substring(start, end + 1);
-    return JSON.parse(jsonString);
-  } catch (e) {
-    console.error("Parsing error:", e);
-    alert("Error loading orders. Check your Sheet permissions.");
-    return null;
-  }
+async function loadOrders(){
+  const url = `https://docs.google.com/spreadsheets/d/${1yDADA6-M5sVpagaBh5JGGxAIEr7d8063c3e-QQzbVqE}/gviz/tq?tqx=out:json`;
+  
+  const res = await fetch(url);
+  const text = await res.text();
+
+  const json = JSON.parse(text.substring(47).slice(0, -2));
+  const rows = json.table.rows;
+
+  const table = document.getElementById('orders');
+  table.innerHTML = '';
+
+  rows.forEach(r => {
+    const row = document.createElement('tr');
+
+    const name = r.c[0]?.v || '';
+    const email = r.c[1]?.v || '';
+    const items = r.c[2]?.v || '';
+    const total = r.c[3]?.v || '';
+
+    row.innerHTML = `
+      <td>${name}</td>
+      <td>${email}</td>
+      <td>${items}</td>
+      <td>$${total}</td>
+      <td>Auto</td>
+      <td>Pending</td>
+      <td>View in Sheet</td>
+    `;
+
+    table.appendChild(row);
+  });
 }
 
-async function load(){
-  try {
-    const res = await fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`);
-    const text = await res.text();
-
-    const json = parseGoogleJSON(text);
-    if(!json) return;
-
-    let total=0;
-    const rows=json.table.rows;
-    const table=document.getElementById('orders');
-    table.innerHTML = '';
-
-    rows.forEach(r=>{
-      const name=r.c[1]?.v||'';
-      const email=r.c[2]?.v||'';
-      const items=r.c[3]?.v||'';
-      const t=parseFloat(r.c[4]?.v||0);
-
-      total+=t;
-
-      const tr=document.createElement('tr');
-      tr.innerHTML=`<td>${name}</td><td>${email}</td><td>${items}</td><td>$${t}</td>`;
-      table.appendChild(tr);
-    });
-
-    document.getElementById('totalSales').innerText="Total: $"+total.toFixed(2);
-
-  } catch(err) {
-    console.error(err);
-    alert("Failed to load dashboard data.");
-  }
-}
-
-load();
+loadOrders();
 </script>
 
 </body>
