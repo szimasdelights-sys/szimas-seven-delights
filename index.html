@@ -104,11 +104,7 @@ let orderText = encodeURIComponent(
 "\nNote: " + note +
 "\nItems: " + cart.join(", ")
 );
-
-let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/viewform?usp=pp_url&entry.808301826=Test";
-
-window.open(googleFormURL + "?entry.808301826=" + orderText);
-
+  
 alert("Your order has been sent!");
 
 cart = [];
