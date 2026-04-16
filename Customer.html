@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- PRODUCTS -->
+<section>
+<h2>Products</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Double Chocolate Chip Cookies</h3>
+<select id="cookies">
+  <option $1.50="Single">Single</option>
+  <option $7.00="Dozen">Dozen</option>
+</select>
+<button onclick="add('Cookies')">Add</button>
+</div>
+
+<div class="card">
+<h3>Chocolate Chip</h3>
+<select id="cakes">
+  <option $1.00="Single">Single Cake</option>
+  <option $6.00="Custom">Custom Order</option>
+</select>
+<button onclick="add('Cakes')">Add</button>
+</div>
+
+<div class="card">
+<h3>Cookie Monster</h3>
+<select id="brownies">
+  <option $1.50="Single">Single</option>
+  <option $7.00="Dozen">Dozen</option>
+</select>
+<button onclick="add('Brownies')">Add</button>
+</div>
+
+</div>
+</section>
+
+<!-- CHECKOUT -->
+<section>
+<h2>Checkout</h2>
+
+<input id="name" placeholder="Name" />
+<input id="phone" placeholder="Phone" />
+<input id="note" placeholder="Pickup / Delivery Notes" />
+
+<h3>Cart</h3>
+<div id="cart"></div>
+
+<button class="checkout-btn" onclick="submitOrder()">Submit Order</button>
+
+<div class="pay-links">
+  <a class="cashapp" href="https://cash.app/$$Ssevendelights" target="_blank">Pay with Cash App</a>
+  <a class="venmo" href="https://venmo.com/YOURUSERNAME" target="_blank">Pay with Venmo</a>
+  <a class="paypal" href="#">Pay with PayPal</a>
+</div>
+
+</section>
+
+</div>
+
+<script>
+let cart = [];
+
+  function add(item) {
+
+  let option = document.getElementById(item.toLowerCase()).value;
+
+  let price = 0;
+
+  if (option === "single") price = prices[item].single;
+  if (option === "dozen") price = prices[item].dozen;
+
+  cart.push({ item, option, price });
+
+  total += price;
+
+  render();
+}
+
+function render() {
+  document.getElementById("cart").innerHTML =
+    cart.map((c, index) =>
+      `<div>
+        ${c.item} (${c.option}) - $${c.price}
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>`
+    ).join('');
+
+  document.getElementById("total").innerText = total;
+}
+function removeItem(index) {
+  total -= cart[index].price;
+  cart.splice(index, 1);
+  render();
+}
+  
+function submitOrder(){
+
+let name = document.getElementById('name').value;
+let phone = document.getElementById('phone').value;
+let note = document.getElementById('note').value;
+
+let orderText = encodeURIComponent(
+"Name: " + name +
+"\nPhone: " + phone +
+"\nNote: " + note +
+"\nItems: " + cart.join(", ")
+);
+
+let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSer3h7soyG60eIsp06LEHrBudc1WUsRcbU6YYhvJHYbTBkyjg/viewform?usp=pp_url&entry.808301826=Test";
+
+window.open(googleFormURL + "?entry.808301826=" + orderText);
+
+alert("Your order has been sent!");
+
+cart = [];
+render();
+}
+</script>
+
+</body>
+</html>
+
