@@ -129,33 +129,23 @@ input, select {
 <div class="product"> 
 
   
-<h3>Turtle</h3>
+<h3>Chocolate Cookies with PB Chips</h3>
 <div class="price">$1.50 / $7 Dozen</div>
-<select id="Turtle">
+<select id="Chocolate Cookies with PB chips">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Turtle')">Add to Cart</button>
+<button onclick="add('Chocolate cookies with PB chips')">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Red Velvet Cookies</h3>
+<h3>White Chocolate Cranberry Cookies</h3>
 <div class="price">$1.50 / $7 Dozen</div>
-<select id="Red Velvet Cookies">
+<select id="White Chocolate Cranberry Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Red Velvet Cookies')">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>Cookie Monster Cookies</h3>
-<div class="price">$1.50 / $7 Dozen</div>
-<select id="Cookie Monster Cookies">
-  <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
-</select>
-<button onclick="add('Cookie Monster Cookies')">Add to Cart</button>
+<button onclick="add('White chocolate Cranberry Cookies')">Add to Cart</button>
 </div>
 
 <div class="card">
@@ -169,45 +159,23 @@ input, select {
 </div>
 
 <div class="card">
-<h3>Sugar Cookies</h3>
+<h3>Snickerdoodle Cookies</h3>
 <div class="price">$1.00 / $6 Dozen</div>
-<select id="Sugar Cookies">
+<select id="Snickerdoodle Cookies">
   <option value="single">Single</option>
   <option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Sugar Cookies')">Add to Cart</button>
+<button onclick="add('Snickerdoodle Cookies')">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Lemon Crumble Muffins</h3>
-<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
-<select id="Lemon Crumble Muffins">
-  <option value="single">Single</option>
-  <option value="Four Pack">Four Pack</option>
-  <option value="dozen">Dozen</option>
-</select>
-<button onclick="add('Lemon Crumble Muffins')">Add to Cart</button>
-</div>
-
-  <div class="card">
-<h3>Vanilla Cinnamon Muffins</h3>
-<div class="price">$2.00 / $4 Four Pack / $8 Dozen</div>
-<select id="Vanilla Cinnamon Muffins">
-  <option value="single">Single</option>
-  <option value="Four Pack">Four Pack</option>
-  <option value="dozen">Dozen</option>
-</select>
-<button onclick="add('Vanilla Cinnamon Muffins')">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>Peach Bread</h3>
+<h3>Cinnamon Apple Bread</h3>
 <div class="price">$2.00 mini / $4 Loaves</div>
-<select id="Peach Bread">
+<select id="Cinnamon Apple Bread">
   <option value="single">Single</option>
   <option value="Loaves">Loaves</option>
 </select>
-<button onclick="add('Peach Bread')">Add to Cart</button>
+<button onclick="add('Cinnamon Apple Bread')">Add to Cart</button>
 </div>
 
 <div class="card">
@@ -221,13 +189,13 @@ input, select {
 </div>
 
 <div class="card">
-<h3>Zuchini Chocolate Bread</h3>
+<h3>Chedder Bay Bread</h3>
 <div class="price">$2.00 mini / $4 Loaves</div>
-<select id="Zuchini Chocolate Bread">
+<select id="Chedder Bay Bread">
   <option value="single">Single</option>
   <option value="Loaves">Loaves</option>
 </select>
-<button onclick="add('Zuchini Chocolate Bread')">Add to Cart</button>
+<button onclick="add('Chedder Bay Bread')">Add to Cart</button>
 </div>
 
 <div class="card">
@@ -249,21 +217,29 @@ input, select {
 </div>
 
 <div class="card">
-<h3>Brownies</h3>
+<h3>Mini Smore Pies</h3>
 <div class="price">$2.00 / $8 Pan</div>
-<select id="Brownies">
+<select id="Mini Smore Pies">
   <option value="single">Single</option>
-  <option value="Pan">Pan</option>
 </select>
-<button onclick="add('Brownies')">Add to Cart</button>
+<button onclick="add('Mini Smore Pies')">Add to Cart</button>
 </div>
 
+  <div class="card">
+<h3>Oatmeal Cream Pies</h3>
+<div class="price">$2.00 / $8 Pan</div>
+<select id="Oatmeal Cream Pies">
+  <option value="single">Single</option>
+</select>
+<button onclick="add('Oatmeal Cream Pies')">Add to Cart</button>
+</div>
+  
 </div>
 </section>
 
 <section>
 <h2>🌿 About Our Kitchen</h2>
-<p>Homemade in a cottage food kitchen. Fresh baked goods made to order.</p>
+<p>Homemade in a cottage food kitchen. Fresh baked goods made to order. If you would like to place a special Order Please Email szimadelights@gmail.com or Messages Us on Facebook at Szimas Creations.</p>
 </section>
 
 <section>
@@ -293,22 +269,18 @@ let cart = [];
 let total = 0;
 
 const prices = {
-"Double Chocolate Chip Cookies": { single: 1.50, dozen: 7.00 },
-"Red Velvet Cookies": { single: 1.50, dozen: 7.00 },
-"Cookie Monster Cookies": { single: 1.50, dozen: 7.00 },
+"Chocolate Cookies with PB Chips": { single: 1.50, dozen: 7.00 },
+"White Cranberry Strawberry": { single: 1.50, dozen: 7.00 },
 "Chocolate Chip Cookies": { single: 1.00, dozen: 6.00 },
-"Oatmeal Raisin Cookies": { single: 1.00, dozen: 6.00 },
+"Snickerdoodle Cookies": { single: 1.00, dozen: 6.00 },
 
-"Pecan Pie Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
-"Blueberry Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
-"Banana Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
-"Donut Muffins": { single: 2.00, "Four Pack": 4.00, dozen: 8.00 },
-
-"Lemon Bread": { single: 2.00, Loaves: 4.00 },
-"Humming Bird Bread": { single: 2.00, Loaves: 4.00 },
-"Apple Pecan Bread": { single: 2.00, Loaves: 4.00 },
-
-"Brownies": { single: 2.00, Pan: 8.00 }
+"Apple Cinnamon Bread": { single: 2.00, Loaves: 4.00 },
+"Chedder Bay Bread": { single: 2.00, Loaves: 4.00 },
+"Regular Sandwhich Bread": { Loaves: 4.00 },
+"Cinnimon Raisin Bread": { Loaves: 4.00 },
+  
+"Mini Smore Pies": { single: 2.00,}
+"Oatmeal Cream Pies": { single: 2.00,}
 };
 
 function add(item) {
