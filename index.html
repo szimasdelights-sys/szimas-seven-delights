@@ -3,332 +3,909 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Szimas Seven Delights</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: #f4efe6;
-  color: #3b2f2a;
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  box-sizing:border-box;
 }
 
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
+body{
+  margin:0;
+  background:#f8f3eb;
+  color:#4b372d;
+  font-family:'Poppins', sans-serif;
 }
 
-.hero h1 { margin: 0; font-size: 38px; }
-.hero p { font-style: italic; margin-top: 10px; }
-
-.badges span {
-  display: inline-block;
-  background: rgba(255,255,255,0.2);
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 12px;
+h1,h2,h3{
+  font-family:'Playfair Display', serif;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+.container{
+  width:92%;
+  max-width:1250px;
+  margin:auto;
 }
 
-.card {
-  background: #fffdf8;
-  border-radius: 16px;
-  padding: 16px;
-  border: 1px solid #eadfce;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  min-height:90vh;
+  background:
+  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+  url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80');
+
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
 }
 
-.price {
-  color: #8b5a3c;
-  font-weight: bold;
-  margin: 6px 0;
+.hero-content{
+  max-width:850px;
+  color:white;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 12px;
-  background: #8b5a3c;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.hero h1{
+  font-size:clamp(3rem,6vw,5.5rem);
+  margin-bottom:10px;
 }
 
-button:hover { background: #6e452c; }
-
-.cart {
-  position: fixed;
-  right: 15px;
-  top: 120px;
-  width: 280px;
-  background: #fffaf2;
-  border: 1px solid #e6d7c6;
-  border-radius: 14px;
-  padding: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.hero p{
+  font-size:1.2rem;
+  line-height:1.7;
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-  border-radius: 8px;
-  border: 1px solid #d8c6b0;
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-@media (max-width: 768px) {
-  .cart {
-    position: static;
-    width: 100%;
-    margin-top: 20px;
-  }
+.hero-btn{
+  background:#c28d63;
+  color:white;
+  padding:14px 26px;
+  border-radius:50px;
+  font-weight:600;
+  transition:.3s;
+  border:none;
+  cursor:pointer;
 }
+
+.hero-btn:hover{
+  background:#9f6f4d;
+  transform:translateY(-2px);
+}
+
+.badges{
+  margin-top:30px;
+}
+
+.badges span{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(6px);
+  padding:10px 16px;
+  border-radius:30px;
+  display:inline-block;
+  margin:6px;
+  font-size:.95rem;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff9f3;
+  box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+}
+
+.logo{
+  font-family:'Playfair Display', serif;
+  font-size:1.5rem;
+  font-weight:700;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  font-weight:500;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+  padding:70px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h2{
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:#7c675b;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:28px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.card{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  transition:.35s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:22px;
+}
+
+.card h3{
+  margin-top:0;
+}
+
+.price{
+  font-size:1.1rem;
+  color:#9b6d4f;
+  font-weight:700;
+  margin:12px 0;
+}
+
+select,
+input,
+textarea{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid #dfd2c3;
+  margin-top:10px;
+  font-family:'Poppins', sans-serif;
+  background:#fffdfb;
+}
+
+textarea{
+  resize:vertical;
+  min-height:90px;
+}
+
+.btn{
+  width:100%;
+  border:none;
+  padding:14px;
+  border-radius:16px;
+  margin-top:14px;
+  background:#b8825e;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#946547;
+}
+
+/* =========================
+   CART
+========================= */
+
+.checkout-wrapper{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:30px;
+}
+
+.checkout-box,
+.cart-box{
+  background:white;
+  border-radius:28px;
+  padding:30px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.cart-item{
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+}
+
+.remove-btn{
+  margin-top:10px;
+  background:#d46c6c;
+  border:none;
+  color:white;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-box{
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#3f2d25;
+  color:white;
+  text-align:center;
+  padding:50px 20px;
+  margin-top:60px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+.checkout-wrapper{
+  grid-template-columns:1fr;
+}
+
+.hero{
+  min-height:75vh;
+}
+
+.hero h1{
+  font-size:3rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>🌾 Szimas Seven Delights</h1>
-  <p>Fresh homemade bakery goods made with love</p>
-  <div class="badges">
-    <span>🧁 Fresh Daily</span>
-    <span>🏡 Porch Pickup</span>
-    <span>📦 Custom Orders</span>
-  </div>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<div class="navbar">
+<div class="container nav-inner">
+
+<div class="logo">
+🌾 Szimas Seven Delights
 </div>
+
+<div class="nav-links">
+<a href="#bakery">Bakery</a>
+<a href="#handmade">Handmade</a>
+<a href="#checkout">Checkout</a>
+</div>
+
+</div>
+</div>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>Fresh Baked Comforts & Handmade Creations</h1>
+
+<p>
+Homemade bakery treats, custom gifts, handmade creations, porch pickup,
+special orders, and cozy farmhouse goodness made with love.
+</p>
+
+<div class="hero-buttons">
+<button class="hero-btn">🧁 Order Bakery Items</button>
+<button class="hero-btn">🎨 Customize Handmade Items</button>
+</div>
+
+<div class="badges">
+<span>🧁 Fresh Daily</span>
+<span>🏡 Porch Pickup</span>
+<span>📦 Custom Orders</span>
+<span>💌 Handmade Gifts</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section>
+<div class="container">
+
+<div class="login-box">
+
+<h2>👤 Customer Login</h2>
+
+<input type="email" placeholder="Email Address">
+<input type="password" placeholder="Password">
+
+<button class="btn">
+Login / Create Account
+</button>
+
+<p id="userDisplay"></p>
+
+</div>
+
+</div>
+</section>
+
+<!-- =========================
+     BAKERY
+========================= -->
+
+<section id="bakery">
 
 <div class="container">
 
-<section>
-<h2>🛍️ Shop Fresh Baked Goods</h2>
+<div class="section-title">
+<h2>Fresh Bakery Favorites</h2>
+<p>Homemade comfort foods baked fresh for your family.</p>
+</div>
 
-  
 <div class="grid">
-<div class="card">
-<div class="product"> 
-
-  
-<h3>Chocolate Cookies with PB Chips</h3>
-<div class="price">$1.50 / $7 Dozen</div>
-<select id="Chocolate Cookies with PB chips">
-  <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
-</select>
-<button onclick="add('Chocolate cookies with PB chips')">Add to Cart</button>
-</div>
 
 <div class="card">
-<h3>White Chocolate Cranberry Cookies</h3>
-<div class="price">$1.50 / $7 Dozen</div>
-<select id="White Chocolate Cranberry Cookies">
-  <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
-</select>
-<button onclick="add('White chocolate Cranberry Cookies')">Add to Cart</button>
-</div>
+<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=1200" />
 
-<div class="card">
+<div class="card-content">
 <h3>Chocolate Chip Cookies</h3>
-<div class="price">$1.00 / $6 Dozen</div>
+
+<div class="price">
+$1 Single • $6 Dozen
+</div>
+
 <select id="Chocolate Chip Cookies">
-  <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
+<option value="single">Single</option>
+<option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Chocolate Chip Cookies')">Add to Cart</button>
+
+<button class="btn" onclick="add('Chocolate Chip Cookies')">
+Add To Cart
+</button>
+
+</div>
 </div>
 
 <div class="card">
-<h3>Snickerdoodle Cookies</h3>
-<div class="price">$1.00 / $6 Dozen</div>
-<select id="Snickerdoodle Cookies">
-  <option value="single">Single</option>
-  <option value="dozen">Dozen</option>
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1200" />
+
+<div class="card-content">
+<h3>Blueberry Muffins</h3>
+
+<div class="price">
+$2 Single • $8 Dozen
+</div>
+
+<select id="Blueberry Muffins">
+<option value="single">Single</option>
+<option value="dozen">Dozen</option>
 </select>
-<button onclick="add('Snickerdoodle Cookies')">Add to Cart</button>
+
+<button class="btn" onclick="add('Blueberry Muffins')">
+Add To Cart
+</button>
+
+</div>
 </div>
 
 <div class="card">
-<h3>Cinnamon Apple Bread</h3>
-<div class="price">$2.00 mini / $4 Loaves</div>
-<select id="Cinnamon Apple Bread">
-  <option value="single">Single</option>
-  <option value="Loaves">Loaves</option>
-</select>
-<button onclick="add('Cinnamon Apple Bread')">Add to Cart</button>
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200" />
+
+<div class="card-content">
+<h3>Lemon Bread</h3>
+
+<div class="price">
+$2 Mini • $4 Loaf
 </div>
 
-<div class="card">
-<h3>Zuchini Bread</h3>
-<div class="price">$2.00 mini / $4 Loaves</div>
-<select id="Zuchini Bread">
-  <option value="single">Single</option>
-  <option value="Loaves">Loaves</option>
+<select id="Lemon Bread">
+<option value="single">Mini</option>
+<option value="Loaves">Loaf</option>
 </select>
-<button onclick="add('Zuchini Bread')">Add to Cart</button>
+
+<button class="btn" onclick="add('Lemon Bread')">
+Add To Cart
+</button>
+
+</div>
 </div>
 
-<div class="card">
-<h3>Chedder Bay Bread</h3>
-<div class="price">$2.00 mini / $4 Loaves</div>
-<select id="Chedder Bay Bread">
-  <option value="single">Single</option>
-  <option value="Loaves">Loaves</option>
-</select>
-<button onclick="add('Chedder Bay Bread')">Add to Cart</button>
 </div>
 
-<div class="card">
-<h3>Regular Sandwhich Bread</h3>
-<div class="price">$4 Loaves</div>
-<select id="Regular Sandwhich Bread">
-  <option value="Loaves">Loaves</option>
-</select>
-<button onclick="add('Regular Sandwhich Bread')">Add to Cart</button>
-</div>
-
-  <div class="card">
-<h3>Cinnamon Raisin Bread</h3>
-<div class="price"> $4 Loaves</div>
-<select id="Cinnamon Raisin Bread">
-  <option value="Loaves">Loaves</option>
-</select>
-<button onclick="add('Cinnamon Raisin Bread')">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>Mini Smore Pies</h3>
-<div class="price">$2.00 / $8 Pan</div>
-<select id="Mini Smore Pies">
-  <option value="single">Single</option>
-</select>
-<button onclick="add('Mini Smore Pies')">Add to Cart</button>
-</div>
-
-  <div class="card">
-<h3>Oatmeal Cream Pies</h3>
-<div class="price">$2.00 / $8 Pan</div>
-<select id="Oatmeal Cream Pies">
-  <option value="single">Single</option>
-</select>
-<button onclick="add('Oatmeal Cream Pies')">Add to Cart</button>
-</div>
-  
 </div>
 </section>
 
-<section>
-<h2>🌿 About Our Kitchen</h2>
-<p>Homemade in a cottage food kitchen. Fresh baked goods made to order. If you would like to place a special Order Please Email szimadelights@gmail.com or Messages Us on Facebook at Szimas Creations.</p>
+<!-- =========================
+     HANDMADE
+========================= -->
+
+<section id="handmade">
+
+<div class="container">
+
+<div class="section-title">
+<h2>🎨 Handmade Custom Creations</h2>
+
+<p>
+Create personalized gifts, apparel, cups, signs, and more.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200" />
+
+<div class="card-content">
+
+<h3>Custom T-Shirt</h3>
+
+<div class="price">
+Starting at $18
+</div>
+
+<textarea id="shirtText" placeholder="What would you like it to say?"></textarea>
+
+<select id="shirtColor">
+<option>White</option>
+<option>Black</option>
+<option>Pink</option>
+<option>Blue</option>
+<option>Sage Green</option>
+</select>
+
+<input type="text" id="shirtImage" placeholder="Image or design idea">
+
+<input type="file">
+
+<button class="btn" onclick="addCustomShirt()">
+Customize My Own
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?q=80&w=1200" />
+
+<div class="card-content">
+
+<h3>Custom Cups</h3>
+
+<div class="price">
+Starting at $12
+</div>
+
+<textarea id="cupText" placeholder="What would you like it to say?"></textarea>
+
+<select id="cupColor">
+<option>White</option>
+<option>Pink</option>
+<option>Blue</option>
+<option>Clear</option>
+</select>
+
+<input type="text" id="cupImage" placeholder="Image or design idea">
+
+<input type="file">
+
+<button class="btn" onclick="addCustomCup()">
+Customize My Own
+</button>
+
+</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section>
-<h2>Checkout</h2>
+<!-- =========================
+     CHECKOUT
+========================= -->
 
-<input id="name" placeholder="Name"/>
-<input id="phone" placeholder="Phone Number"/>
-<input id="email" placeholder="Email"/>
-<input id="note" placeholder="Pickup / Delivery Notes"/>
+<section id="checkout">
 
-<h3>Total: $<span id="total">0</span></h3>
+<div class="container">
+
+<div class="section-title">
+<h2>🛒 Checkout</h2>
+<p>Choose pickup time and complete your order.</p>
+</div>
+
+<div class="checkout-wrapper">
+
+<div class="checkout-box">
+
+<input id="name" placeholder="Full Name">
+
+<input id="phone" placeholder="Phone Number">
+
+<input id="email" placeholder="Email Address">
+
+<select id="pickupSlot">
+<option>Saturday 8AM - 10AM</option>
+<option>Saturday 10AM - 12PM</option>
+<option>Saturday 12PM - 2PM</option>
+<option>Sunday 8AM - 10AM</option>
+<option>Sunday 10AM - 12PM</option>
+</select>
+
+<textarea id="note" placeholder="Pickup Notes, Delivery Notes, Allergies, Etc"></textarea>
+
+<button class="btn" onclick="submitOrder()">
+Submit Order
+</button>
+
+<h3>💳 Payment Options</h3>
+
+<p>
+<a href="https://cash.app/$Ssevendelights">Cash App</a>
+</p>
+
+<p>
+<a href="https://venmo.com/">Venmo</a>
+</p>
+
+</div>
+
+<div class="cart-box">
+
+<h2>Your Cart</h2>
 
 <div id="cart"></div>
 
-<button onclick="submitOrder()">Submit Order</button>
-
-<p><b>Payment Options:</b></p>
-<a href="https://cash.app/$Ssevendelights">Cash App</a><br>
-<a href="https://venmo.com/@SzimasDelights">Venmo</a><br>
-</section>
+<h2>
+Total: $<span id="total">0.00</span>
+</h2>
 
 </div>
 
+</div>
+
+</div>
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<h2>🌾 Szimas Seven Delights</h2>
+
+<p>
+Fresh homemade bakery goods & custom handmade creations.
+</p>
+
+<p>
+Porch Pickup • Local Orders • Handmade with Love
+</p>
+
+</footer>
+
 <script>
+
+/* =========================
+   CART SYSTEM
+========================= */
 
 let cart = [];
 let total = 0;
 
-const prices = {
-"Chocolate Cookies with PB Chips": { single: 1.50, dozen: 7.00 },
-"White Cranberry Strawberry": { single: 1.50, dozen: 7.00 },
-"Chocolate Chip Cookies": { single: 1.00, dozen: 6.00 },
-"Snickerdoodle Cookies": { single: 1.00, dozen: 6.00 },
+/* =========================
+   PRICING
+========================= */
 
-"Apple Cinnamon Bread": { single: 2.00, Loaves: 4.00 },
-"Chedder Bay Bread": { single: 2.00, Loaves: 4.00 },
-"Regular Sandwhich Bread": { Loaves: 4.00 },
-"Cinnimon Raisin Bread": { Loaves: 4.00 },
-  
-"Mini Smore Pies": { single: 2.00,}
-"Oatmeal Cream Pies": { single: 2.00,}
+const prices = {
+
+"Chocolate Chip Cookies": {
+single:1,
+dozen:6
+},
+
+"Blueberry Muffins": {
+single:2,
+dozen:8
+},
+
+"Lemon Bread": {
+single:2,
+Loaves:4
+}
+
 };
 
-function add(item) {
-  let select = document.querySelector(`select[id="${item}"]`);
-  let option = select.value;
+/* =========================
+   ADD ITEMS
+========================= */
 
-  let price = prices[item][option];
+function add(item){
 
-  cart.push({ item, option, price });
-  total += price;
+let option =
+document.getElementById(item).value;
 
-  render();
+let price =
+prices[item][option];
+
+cart.push({
+item,
+option,
+price
+});
+
+total += price;
+
+render();
+
 }
 
-function render() {
-  document.getElementById("cart").innerHTML =
-    cart.map((c, i) =>
-      `<div>
-        ${c.item} (${c.option}) - $${c.price}
-        <button onclick="removeItem(${i})">Remove</button>
-      </div>`
-    ).join('');
+/* =========================
+   CUSTOM SHIRT
+========================= */
 
-  document.getElementById("total").innerText = total.toFixed(2);
+function addCustomShirt(){
+
+let text =
+document.getElementById("shirtText").value;
+
+let color =
+document.getElementById("shirtColor").value;
+
+let image =
+document.getElementById("shirtImage").value;
+
+cart.push({
+
+item:
+`Custom Shirt | "${text}" | ${color} | ${image}`,
+
+option:"Custom",
+
+price:18
+
+});
+
+total += 18;
+
+render();
+
 }
 
-function removeItem(i) {
-  total -= cart[i].price;
-  cart.splice(i, 1);
-  render();
+/* =========================
+   CUSTOM CUP
+========================= */
+
+function addCustomCup(){
+
+let text =
+document.getElementById("cupText").value;
+
+let color =
+document.getElementById("cupColor").value;
+
+let image =
+document.getElementById("cupImage").value;
+
+cart.push({
+
+item:
+`Custom Cup | "${text}" | ${color} | ${image}`,
+
+option:"Custom",
+
+price:12
+
+});
+
+total += 12;
+
+render();
+
 }
 
-function submitOrder() {
-  let name = document.getElementById('name').value;
-  let phone = document.getElementById('phone').value;
-  let email = document.getElementById('email').value;
-  let note = document.getElementById('note').value;
+/* =========================
+   RENDER CART
+========================= */
 
-  let orderText =
-    "Name: " + name +
-    "\nPhone: " + phone +
-    "\nEmail: " + email +
-    "\nNote: " + note +
-    "\nItems: " + cart.map(c => c.item + " " + c.option).join(", ");
+function render(){
 
-  alert("Order captured! Send payment via Cash App or Venmo.");
-  console.log(orderText);
+document.getElementById("cart").innerHTML =
+
+cart.map((c,i)=>
+
+`
+<div class="cart-item">
+
+<b>${c.item}</b><br>
+
+${c.option} - $${c.price}
+
+<br>
+
+<button class="remove-btn"
+onclick="removeItem(${i})">
+
+Remove
+
+</button>
+
+</div>
+`
+
+).join("");
+
+document.getElementById("total").innerText =
+total.toFixed(2);
+
 }
+
+/* =========================
+   REMOVE ITEM
+========================= */
+
+function removeItem(i){
+
+total -= cart[i].price;
+
+cart.splice(i,1);
+
+render();
+
+}
+
+/* =========================
+   SUBMIT ORDER
+========================= */
+
+function submitOrder(){
+
+let name =
+document.getElementById("name").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let email =
+document.getElementById("email").value;
+
+let pickup =
+document.getElementById("pickupSlot").value;
+
+let note =
+document.getElementById("note").value;
+
+let orderDetails =
+
+`
+ORDER DETAILS
+
+Name:
+${name}
+
+Phone:
+${phone}
+
+Email:
+${email}
+
+Pickup:
+${pickup}
+
+Notes:
+${note}
+
+Items:
+${cart.map(c => `${c.item} - ${c.option}`).join("\n")}
+`;
+
+console.log(orderDetails);
+
+alert(
+"Order submitted successfully! We will contact you soon with pickup details."
+);
+
+}
+
+/* =========================
+   TEXT ALERT PLACEHOLDER
+========================= */
+
+/*
+FOR REAL TEXT ALERTS:
+
+Use:
+- Twilio
+- Firebase Functions
+- Zapier
+- Formspree
+
+This requires backend setup.
+*/
 
 </script>
 
